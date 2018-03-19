@@ -1,4 +1,4 @@
-|build| |version| |wheel| |license| |python3|
+|version|
 
 PokitDok Platform API Client for Python
 =======================================
@@ -255,7 +255,7 @@ You may have luck with other interpreters - let us know how it goes.
 License
 -------
 
-Copyright (c) 2014 PokitDok, Inc.  See LICENSE_ for details.
+Copyright (c) 2018 PokitDok, Inc.  See LICENSE_ for details.
 
 .. _documentation: https://platform.pokitdok.com/documentation/v4/?python#
 .. _issues: https://github.com/pokitdok/pokitdok-python/issues
@@ -267,15 +267,3 @@ Copyright (c) 2014 PokitDok, Inc.  See LICENSE_ for details.
 
 .. |version| image:: https://badge.fury.io/py/pokitdok.svg
     :target: https://pypi.python.org/pypi/pokitdok/
-
-.. |build| image:: https://api.travis-ci.org/pokitdok/pokitdok-python.svg
-    :target: https://travis-ci.org/pokitdok/pokitdok-python
-
-.. |wheel| image:: https://img.shields.io/pypi/format/pokitdok.svg
-    :target: https://pypi.python.org/pypi/pokitdok/
-
-.. |license| image:: https://img.shields.io/pypi/l/pokitdok.svg
-    :target: https://pypi.python.org/pypi/pokitdok/
-
-.. |python3| image:: https://caniusepython3.com/project/pokitdok.svg
-    :target: https://caniusepython3.com/project/pokitdok
