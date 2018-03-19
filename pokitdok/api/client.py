@@ -12,7 +12,6 @@ import json
 import os
 import platform
 import pokitdok
-import requests
 from requests_oauthlib import OAuth2Session, TokenUpdated
 from oauthlib.oauth2 import BackendApplicationClient, TokenExpiredError
 from warnings import warn
@@ -168,6 +167,13 @@ class PokitDokClient(object):
         try:
             response = request_method(request_url, data=request_data, files=files, params=kwargs, headers=headers)
             self.status_code = response.status_code
+            if self.status_code == 401:
+                # if TokenExpiredError is not raised but it should have been, we'll raise it explicitly here
+                # https://github.com/oauthlib/oauthlib/pull/506 could cause this code path to be followed.
+                # this special handling can likely be removed once https://github.com/oauthlib/oauthlib/pull/506
+                # rolls into a new oauthlib release
+                raise TokenExpiredError('Access Token has expired. Please, re-authenticate. '
+                                        'Use auto_refresh=True to have your client auto refresh')
             return response.json()
         except (TokenUpdated, TokenExpiredError):
             if self.auto_refresh:
