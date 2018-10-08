@@ -139,7 +139,6 @@ class PokitDokClient(object):
             :param code: optional code value obtained via an authorization grant
             :return: the client application's token information as a dictionary
         """
-        self.api_client.token = None
         self.token = self.api_client.fetch_token(token_url=self.token_url, code=code, client_id=self.client_id,
                                                  client_secret=self.client_secret, scope=self.scope)
         return self.token
@@ -385,7 +384,7 @@ class PokitDokClient(object):
 
             Keyword arguments that may be used to refine a providers search:
 
-            :param address_lines: Any or all of number, street name, apartment, suite number 
+            :param address_lines: Any or all of number, street name, apartment, suite number
             :param zipcode: Zip code to search in
             :param city: City to search in
             :param state: State to search in
@@ -394,10 +393,10 @@ class PokitDokClient(object):
                            be provided to enable distance sorting with specified radius
             :param first_name: The first name of a provider to include in the search criteria
             :param last_name: The last name of a provider to include in the search criteria
-            :param organization_name: The organization_name of a provider.  Do not pass first_name 
+            :param organization_name: The organization_name of a provider.  Do not pass first_name
                                       or last_name with this argument
             :param limit: The number of provider results that should be included in search results
-            :param sort: Accepted values include 'distance' (default) or 'rank'.  'distance' sort 
+            :param sort: Accepted values include 'distance' (default) or 'rank'.  'distance' sort
                          requires city & state or zipcode parameters otherwise sort will be 'rank'.
 
         """
