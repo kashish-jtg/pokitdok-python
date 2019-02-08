@@ -69,7 +69,6 @@ class PokitDokClient(object):
         self.status_code = 0
 
         self.activities_url = "/activities/{0}"
-        self.authorizations_url = "/authorizations/"
         self.ccd_url = "/ccd/"
         self.claims_url = "/claims/"
         self.claims_convert_url = "/claims/convert"
@@ -97,7 +96,6 @@ class PokitDokClient(object):
         self.prices_cash_url = "/prices/cash"
         self.prices_insurance_url = "/prices/insurance"
         self.providers_url = "/providers/{0}"
-        self.referrals_url = "/referrals/"
         self.appointments_url = "/schedule/appointments/{0}"
         self.appointment_types_url = "/schedule/appointmenttypes/{0}"
         self.schedulers_url = "/schedule/schedulers/{0}"
@@ -414,20 +412,6 @@ class PokitDokClient(object):
         """
         path = self.trading_partners_url.format(trading_partner_id if trading_partner_id else '')
         return self.get(path)
-
-    def referrals(self, referral_request):
-        """
-            Submit a referral request
-            :param referral_request: dictionary representing a referral request
-        """
-        return self.post(self.referrals_url, data=referral_request)
-
-    def authorizations(self, authorizations_request):
-        """
-            Submit an authorization request
-            :param authorizations_request: dictionary representing an authorization request
-        """
-        return self.post(self.authorizations_url, data=authorizations_request)
 
     def schedulers(self, scheduler_uuid=None):
         """
