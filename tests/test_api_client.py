@@ -5,7 +5,6 @@ import copy
 from tests import client_settings
 
 
-
 class TestAPIClient(object):
     """
     Validates that PokitDok API client requests are well formed.
@@ -250,56 +249,6 @@ class TestAPIClient(object):
     # ******************************
     #
 
-    def test_authorizations(self):
-        """
-        X12 API Convenience function test: authorizations
-        make a call to the live endpoint for: authorizations
-        """
-        request = {
-            "event": {
-                "category": "health_services_review",
-                "certification_type": "initial",
-                "delivery": {
-                    "quantity": 1,
-                    "quantity_qualifier": "visits"
-                },
-                "diagnoses": [
-                    {
-                        "code": "R10.9",
-                        "date": "2016-01-25"
-                    }
-                ],
-                "place_of_service": "office",
-                "provider": {
-                    "organization_name": "KELLY ULTRASOUND CENTER, LLC",
-                    "npi": "1760779011",
-                    "phone": "8642341234"
-                },
-                "services": [
-                    {
-                        "cpt_code": "76700",
-                        "measurement": "unit",
-                        "quantity": 1
-                    }
-                ],
-                "type": "diagnostic_medical"
-            },
-            "patient": {
-                "birth_date": "1970-01-25",
-                "first_name": "JANE",
-                "last_name": "DOE",
-                "id": "1234567890"
-            },
-            "provider": {
-                "first_name": "JEROME",
-                "npi": "1467560003",
-                "last_name": "AYA-AY"
-            },
-            "trading_partner_id": "MOCKPAYER"
-        }
-        response = self.pd_client.authorizations(request)
-        self.assert_helper(response, 200)
-
     def test_claims_status(self):
         """
         X12 API Convenience function test: claims_status
@@ -352,50 +301,6 @@ class TestAPIClient(object):
             "trading_partner_id": "MOCKPAYER"
         }
         response = self.pd_client.eligibility(request)
-        self.assert_helper(response, 200)
-
-    def test_referrals(self):
-        """
-        X12 API Convenience function test: referrals
-        make a call to the live endpoint for: referrals
-        """
-        request = {
-            "event": {
-                "category": "specialty_care_review",
-                "certification_type": "initial",
-                "delivery": {
-                    "quantity": 1,
-                    "quantity_qualifier": "visits"
-                },
-                "diagnoses": [
-                    {
-                        "code": "H72.90",
-                        "date": "2014-09-25"
-                    }
-                ],
-                "place_of_service": "office",
-                "provider": {
-                    "first_name": "JOHN",
-                    "npi": "1154387751",
-                    "last_name": "FOSTER",
-                    "phone": "8645822900"
-                },
-                "type": "consultation"
-            },
-            "patient": {
-                "birth_date": "1970-01-25",
-                "first_name": "JANE",
-                "last_name": "DOE",
-                "id": "1234567890"
-            },
-            "provider": {
-                "first_name": "CHRISTINA",
-                "last_name": "BERTOLAMI",
-                "npi": "1619131232"
-            },
-            "trading_partner_id": "MOCKPAYER"
-        }
-        response = self.pd_client.referrals(request)
         self.assert_helper(response, 200)
 
     #
